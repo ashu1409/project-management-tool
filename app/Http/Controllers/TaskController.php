@@ -2,44 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        return Task::all();
+        //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'status' => 'in:completed,pending',
-            'attachment' => 'nullable',
-        ]);
-
-        return Task::create($validatedData);
+        //
     }
 
-    public function update(Request $request, Task $task)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'status' => 'in:completed,pending',
-            'attachment' => 'nullable',
-        ]);
-
-        $task->update($validatedData);
-
-        return $task;
+        //
     }
 
-    public function destroy(Task $task)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
-        $task->delete();
+        //
+    }
 
-        return response()->noContent();
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
